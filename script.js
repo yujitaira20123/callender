@@ -9,7 +9,7 @@ console.log(month);
 //動作確認1終了
 
 
-
+//カレンダー作成動作
 function makecalender(){
 
 document.getElementById("nowmonth").textContent = year + "年" + month + "月";
@@ -44,8 +44,11 @@ while (row.children.length < 7){
 calender.appendChild(row);
 
 }
+//カレンダー動作終了
+
 makecalender();
 
+//月移動
 document.getElementById("next").onclick = function(){
     month++;
     calender.innerHTML = "";
@@ -73,6 +76,54 @@ document.getElementById("prev").onclick = function(){
     }
     makecalender();
 }
+//月移動終了
+
+//firebase
+// Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc
+  }from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDeRw57ChkOr7OUBSurL_8aLSGkk041Gdw",
+    authDomain: "calendar-a6b25.firebaseapp.com",
+    projectId: "calendar-a6b25",
+    storageBucket: "calendar-a6b25.firebasestorage.app",
+    messagingSenderId: "752642931749",
+    appId: "1:752642931749:web:d5b6c15a19fd7f091053cc",
+    measurementId: "G-SDJ4J0PH71"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getFirestore(app);
+
+  addDoc(collection(db,"test"),{
+    message: "hello"
+  });
+  //firebase終了
 
 
+  console.log("firebase connected");
+  console.log(app);
+window.onload = function(){
+let button =document.getElementById("aaa");
+button.onclick = function() {
+    addDoc(collection(db,"plans"),{
+        date: "2026-05-10",
+        plan: "バイト",
+        money: 3500
+    });
 
+    console.log("保存成功");
+};
+};
