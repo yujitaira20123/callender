@@ -1,4 +1,4 @@
-//動作確認1
+//動作確認
 let now,year,month;
 now = new Date();
 year = now.getFullYear();
@@ -6,7 +6,7 @@ month = now.getMonth() + 1;
 console.log(now);
 console.log(year);
 console.log(month);
-//動作確認1終了
+//動作確認終了
 
 
 
