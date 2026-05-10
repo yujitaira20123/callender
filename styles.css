@@ -1,0 +1,30 @@
+#calender-box {
+    width: fit-content;
+}
+
+td,th {
+    border: 1px solid black;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+}
+
+#土 {
+    color:blue;
+}
+#日 {
+    color:red;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+td:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}

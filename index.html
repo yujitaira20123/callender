@@ -8,9 +8,27 @@
 
     <body>
         <script src="script.js" defer></script>
-        <p id="today"></p>
-        <h1 id="nowmonth"></h1>
-        <div id="calendar"></div>
+        <div id="calender-box">
+        <div id = "header">
+            <button id="prev">←</button>
+            <h1 id="nowmonth"></h1>
+            <button id="next">→</button>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th id ="日">日</th>
+                <th>月</th>
+                <th>火</th>
+                <th>水</th>
+                <th>木</th>
+                <th>金</th>
+                <th id ="土">土</th>
+            </tr>
+            </thead>
+            <tbody id="calender"></tbody>
+        </table>
+        </div>
     </body>   
 
 
