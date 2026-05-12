@@ -1,4 +1,4 @@
-//動作確認
+//動作確認1
 let now,year,month;
 now = new Date();
 year = now.getFullYear();
@@ -6,7 +6,7 @@ month = now.getMonth() + 1;
 console.log(now);
 console.log(year);
 console.log(month);
-//動作確認終了
+//動作確認1終了
 
 
 //カレンダー作成動作
@@ -106,24 +106,4 @@ document.getElementById("prev").onclick = function(){
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const db = getFirestore(app);
-
-  addDoc(collection(db,"test"),{
-    message: "hello"
-  });
   //firebase終了
-
-
-  console.log("firebase connected");
-  console.log(app);
-window.onload = function(){
-let button =document.getElementById("aaa");
-button.onclick = function() {
-    addDoc(collection(db,"plans"),{
-        date: "2026-05-10",
-        plan: "バイト",
-        money: 3500
-    });
-
-    console.log("保存成功");
-};
-};
