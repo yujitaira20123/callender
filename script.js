@@ -115,13 +115,16 @@ document.getElementById("prev").onclick = function(){
   const db = getFirestore(app);
   //firebase終了
 
+  //データ入力画面閉じる動作
     let closeButton = document.getElementById("closeButton");
     closeButton.onclick = closeModal;
     function closeModal(){
     let modal = document.getElementById("modal");
     modal.style.display = "none";
   }
+  //データ入力画面閉じる動作終了
 
+//データ入力画面保存機能
    let saveButton = document.getElementById("saveButton");
     saveButton.onclick = function() {
     let text = document.getElementById("planImput").value;
@@ -134,3 +137,5 @@ document.getElementById("prev").onclick = function(){
     document.getElementById("planImput").value = "";
     closeModal(); 
   }
+//データ入力画面保存機能終了
+
