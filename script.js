@@ -8,6 +8,7 @@ console.log(year);
 console.log(month);
 //動作確認1終了
 
+let selectDay;
 
 //カレンダー作成動作
 function makecalender(){
@@ -32,6 +33,12 @@ for (let i = 1; i <= days; i++){
         calender.appendChild(row);
         row = document.createElement("tr")
     }
+
+    cell.onclick = function () {
+        selectDay = i;
+    let modal = document.getElementById("modal");
+    modal.style.display = "block";
+  }
 }
 
 if(row.children.length > 0){
@@ -107,3 +114,23 @@ document.getElementById("prev").onclick = function(){
   const analytics = getAnalytics(app);
   const db = getFirestore(app);
   //firebase終了
+
+    let closeButton = document.getElementById("closeButton");
+    closeButton.onclick = closeModal;
+    function closeModal(){
+    let modal = document.getElementById("modal");
+    modal.style.display = "none";
+  }
+
+   let saveButton = document.getElementById("saveButton");
+    saveButton.onclick = function() {
+    let text = document.getElementById("planImput").value;
+    addDoc(collection(db,"plans"),{
+        year: year,
+        month: month,
+        day: selectDay,
+        plan: text
+    });
+    document.getElementById("planImput").value = "";
+    closeModal(); 
+  }
